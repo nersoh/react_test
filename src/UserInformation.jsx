@@ -1,9 +1,20 @@
 import React from 'react';
+import './App.css';
 
-const UserInformation = props => (
-  <div>
-    Display the user information here
-  </div>
-);
+const UserInformation = props => {
+  const { user } = props;
+  console.log(user.repositories);
+  return (
+    <div className="User-container">
+      <h3>{user.login}</h3>
+      <img className="User-avatar" src={user.avatar_url} alt={user.login} />
+      <div className="User-info">
+        <div>{user.name}</div>
+        <div>{user.bio}</div>
+        <div>{user.location}</div>
+      </div>
+    </div>
+  )
+};
 
 export default UserInformation;

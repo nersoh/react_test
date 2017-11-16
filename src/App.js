@@ -1,44 +1,59 @@
+/*
+
+CHALLENGE:
+You will have a button. Fetch information about some user from the gitHub API 
+when you click on it
+When you have the response, the button must be "hidden",
+and the user information must be "visible"
+Do another component to display the name and the description of all of the repos
+related to that user
+We estimate each to a challenge to take up to three or four days,
+working an hour a day after work, hence nothing too demanding.
+
+*/
+
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './github_logo.svg';
 import './App.css';
+import { fetchUser } from './api';
 import UserInformation from './UserInformation';
 
 class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { user: {} }
+    this.state = {
+      user: {},
+      userLoaded: false,
+    }
   }
 
   getUserInformation() {
-    /*
-      TODO: fetch a user from the GitHub API
+    const username = 'nersoh';
 
-      TIPS:
-       1) The Fetch API provides an interface for
-         fetching resources (including across the network).
-       2) Maybe you want to update the state here.
-    */
+    fetchUser(username)
+      .then(response => this.setState({ user: response, userLoaded: true }));
   }
 
   render() {
+    const { user, userLoaded } = this.state;
+
     return (
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
         <div className="App-intro">
-          <hr />
-          <p>Click on the button to fetch the user information</p>
-          <button onClick={this.getUserInformation.bind(this)}>
-            Click me
-          </button>
+          { !userLoaded &&
+            <div> 
+              <p>Click on the button to fetch the user information</p>
+              <button onClick={this.getUserInformation.bind(this)}>
+                Click me
+              </button>
+            </div>
+          }
         </div>
-        <UserInformation />
+        { userLoaded && <UserInformation user={user} /> }
       </div>
     );
   }
