@@ -16,7 +16,7 @@ import React, { Component } from 'react';
 import logo from './github_logo.svg';
 import './App.css';
 import { fetchUser } from './api';
-import UserInformation from './UserInformation';
+import UserInformation from './components/UserInformation';
 
 class App extends Component {
 

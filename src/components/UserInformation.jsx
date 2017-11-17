@@ -1,9 +1,9 @@
 import React from 'react';
-import './App.css';
+import '../App.css';
 
 const UserInformation = props => {
   const { user } = props;
-  console.log(user.repositories);
+
   return (
     <div className="User-container">
       <h3>{user.login}</h3>
