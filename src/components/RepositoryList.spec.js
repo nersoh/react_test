@@ -1,7 +1,7 @@
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-15';
 import { configure, shallow } from 'enzyme';
-import RepositoryList from './RepositoryList';
+import RepositoryList from 'components/RepositoryList';
 
 configure({ adapter: new Adapter() });
 

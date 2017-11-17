@@ -1,4 +1,5 @@
 import React from 'react';
+import RepositoryList from './RepositoryList';
 import '../App.css';
 
 const UserInformation = props => {
@@ -13,6 +14,7 @@ const UserInformation = props => {
         <div>{user.bio}</div>
         <div>{user.location}</div>
       </div>
+      <RepositoryList repositories={[]} />
     </div>
   )
 };
