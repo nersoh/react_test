@@ -1,10 +1,6 @@
 import React from 'react';
-import Adapter from 'enzyme-adapter-react-15';
-import { configure, shallow } from 'enzyme';
 import RepositoryListItem from 'components/RepositoryListItem';
-import UserInformation from './userInformation';
-
-configure({ adapter: new Adapter() });
+import UserInformation from './UserInformation';
 
 const setup = (myProps) => {
   const props = Object.assign({
