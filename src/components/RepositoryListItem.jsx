@@ -4,9 +4,10 @@ const RepositoryListItem = (props) => {
   const { repository } = props;
   return (
     <li className="RepoListItem">
-      <div className="Repo-name">{repository.name}</div>
-      <div className="Repo-starscount">{repository.stargazers_count}</div>
-      <div className="Repo-forkscount">{repository.forks}</div>
+        <div className="Repo-name">
+          <a href={repository.html_url}>{repository.name}</a>
+        </div>
+        <div className="Repo-description">{repository.description}</div>
     </li>  
   )
 };

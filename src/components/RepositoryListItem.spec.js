@@ -8,10 +8,8 @@ configure({ adapter: new Adapter() });
 const setup = (myProps) => {
   const props = Object.assign({
     name: 'repo-name',
-    forks: 1,
+    description: 'repo-description',
     html_url: 'repo-name.com',
-    stargazers_count: 1,
-    watchers_count: 1,
   }, myProps);
 
   const wrapper = shallow(<RepositoryListItem repository={props}/>);
@@ -23,27 +21,27 @@ const setup = (myProps) => {
 }
 
 describe('RepositoryListItem', () => {
-  test('rendering element', () => {
+  it('renders without crashing', () => {
     const { wrapper } = setup();
 
-    expect(wrapper.find('.RepoListItem')).toHaveLength(1);
+    expect(wrapper).toBeDefined();
   });
 
-  test('rendering repository name', () => {
+  it('renders repository name', () => {
     const { wrapper } = setup({ name: 'lovely-stay' });
     
     expect(wrapper.find('.Repo-name').text()).toBe('lovely-stay');
   });
 
-  test('rendering repository stars count', () => {
-    const { wrapper } = setup({ stargazers_count: 10 });
+  it('renders repository url', () => {
+    const { wrapper } = setup({ html_url: 'lovely-stay.com' });
     
-    expect(wrapper.find('.Repo-starscount').text()).toBe('10');
+    expect(wrapper.find('.Repo-name a').prop('href')).toBe('lovely-stay.com');
   });
 
-  test('rendering repository forks count', () => {
-    const { wrapper } = setup({ forks: 5 });
+  it('renders repository description', () => {
+    const { wrapper } = setup({ description: 'myDescription' });
     
-    expect(wrapper.find('.Repo-forkscount').text()).toBe('5');
+    expect(wrapper.find('.Repo-description').text()).toBe('myDescription');
   });
 });

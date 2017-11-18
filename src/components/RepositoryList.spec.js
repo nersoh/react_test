@@ -19,7 +19,13 @@ const setup = (myProps) => {
 }
 
 describe('RepositoryList', () => {
-  test('rendering repository items', () => {
+  it('renders without crashing', () => {
+    const { wrapper } = setup();
+
+    expect(wrapper).toBeDefined();
+  });
+
+  it('renders repository items', () => {
     const items = [
       { id: 1, name: 'repo-name1' },
       { id: 2, name: 'repo-name1' },

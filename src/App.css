@@ -40,3 +40,31 @@
   line-height: 24px;
 }
 
+.RepoList {
+  padding: 0;
+  list-style-type: none;
+}
+
+.RepoListItem {
+  margin: 20px 0;
+  display: flex;
+}
+
+.Repo-header {
+  display: inline-block;
+  width: 50%;
+}
+
+.Repo-name,
+.Repo-description {
+  justify-content: center;
+}
+
+.Repo-name {
+  width: 50%;
+}
+
+.Repo-description {
+  width: 50%;
+}
+

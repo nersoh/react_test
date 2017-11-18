@@ -10,11 +10,11 @@ const UserInformation = props => {
       <h3>{user.login}</h3>
       <img className="User-avatar" src={user.avatar_url} alt={user.login} />
       <div className="User-info">
-        <div>{user.name}</div>
-        <div>{user.bio}</div>
-        <div>{user.location}</div>
+        <div className="User-name">{user.name}</div>
+        <div className="User-bio">{user.bio}</div>
+        <div className="User-location">{user.location}</div>
       </div>
-      <RepositoryList repositories={[]} />
+      <RepositoryList repositories={user.repositories} />
     </div>
   )
 };

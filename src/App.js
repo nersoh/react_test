@@ -15,7 +15,7 @@ working an hour a day after work, hence nothing too demanding.
 import React, { Component } from 'react';
 import logo from './github_logo.svg';
 import './App.css';
-import { fetchUser } from './api';
+import { fetchUserWithRepos } from './api';
 import { UserInformation } from './components';
 
 class App extends Component {
@@ -31,7 +31,7 @@ class App extends Component {
   getUserInformation() {
     const username = 'nersoh';
 
-    fetchUser(username)
+    fetchUserWithRepos(username)
       .then(response => this.setState({ user: response, userLoaded: true }));
   }
 

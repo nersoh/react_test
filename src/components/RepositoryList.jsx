@@ -7,7 +7,14 @@ const RepositoryList = (props) => {
     <RepositoryListItem repository={repo} key={repo.id} />
   );
 
-  return <ul className="RepoList">{items}</ul>;
+  return (
+    <div>
+      <center><h2>Repositories</h2></center>
+      <div className="Repo-header"><strong>Name</strong></div>
+      <div className="Repo-header"><strong>Description</strong></div>
+      <ul className="RepoList">{items}</ul>
+    </div>
+  );
 };
 
 export default RepositoryList;
