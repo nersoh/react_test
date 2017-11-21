@@ -25,7 +25,9 @@ class App extends Component {
     this.state = {
       user: {},
       userLoaded: false,
-    }
+    };
+
+    this.getUserInformation = this.getUserInformation.bind(this)
   }
 
   getUserInformation() {
@@ -47,7 +49,7 @@ class App extends Component {
           { !userLoaded &&
             <div> 
               <p>Click on the button to fetch the user information</p>
-              <button onClick={this.getUserInformation.bind(this)}>
+              <button onClick={this.getUserInformation}>
                 Click me
               </button>
             </div>
